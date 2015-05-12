@@ -1,6 +1,6 @@
 def count_frequency(mylist):
-    unique_list = set(mylist)
-    #print("list to set is",unique_list)
+    unique_list = set(sorted(mylist))
+    print("list to set is",unique_list)
     pydict = {}
     #count = 0
     for words in unique_list:
