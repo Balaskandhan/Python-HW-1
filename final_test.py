@@ -21,6 +21,18 @@ def hello_world_app(environ, start_response):
         data_val = (form_vals["animal"], form_vals["count"])
         cursor.execute("create table IF NOT EXISTS animal_count (name text, count integer)") #execute the create table query
         cursor.execute("insert into animal_count(name, count) values(?, ?)", data_val)
+        cursor.execute("select name,count from animal_count")
+        
+#         message +="<table>"
+#         message +="<th><h1>ZOO DETAILS<h1><th>"
+#         message +="<tr><td>Country</td><td>Total Area</td></tr>"
+#         
+#         for row in cursor.fetchall():
+#             name,count = row
+#             message +="<tr><td>"+name+"</td><td>"+str(count)+"</td></tr>"
+# #             message += "<h3>"+name+"\t"+str(count)+"<h3>"
+# #             print ('%s %s' % (name,count))
+#         message += "</table>"
         conn.commit()
         conn.close()
         
